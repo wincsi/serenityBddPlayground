@@ -37,4 +37,8 @@ public class LoginPage extends PageObject {
         WebElementFacade button = find(By.xpath("//button[contains(.,'"+ buttonName + "')]"));
         return button.isDisplayed();
     }
+
+    public void selectBlankOption() {
+        userSelect.selectByVisibleText("---Your Name---");
+    }
 }

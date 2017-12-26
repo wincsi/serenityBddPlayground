@@ -46,7 +46,21 @@ public class CustomerSteps {
     }
 
     @Step
-    public void isLoginButtonDisplayed(String buttonName) {
-        assertThat(loginPage.isButtonDisplayed(buttonName)).isEqualTo(true);
+    public void isButtonDisplayed(String buttonName) {
+        checkButtonStatus(buttonName, true);
+    }
+
+    @Step
+    public void isButtonHidden(String buttonName) {
+        checkButtonStatus(buttonName, false);
+    }
+
+    @Step
+    public void selectBlankOption() {
+        loginPage.selectBlankOption();
+    }
+
+    protected void checkButtonStatus(String buttonName, boolean isVisible){
+       assertThat(loginPage.isButtonDisplayed(buttonName)).isEqualTo(isVisible);
     }
 }

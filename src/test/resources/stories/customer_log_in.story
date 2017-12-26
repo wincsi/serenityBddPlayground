@@ -7,9 +7,9 @@ Meta:
 @tag component:UI
 @tag tool:jbehave
 
-Given I am on application landing page
-When I log in as customer: '<userName>'
-Then I want to see my bank account
+!-- Given I am on application landing page
+!-- When I log in as customer: '<userName>'
+!-- Then I want to see my bank account
 Examples:
 |userName|
 |Hermoine Granger|

@@ -42,17 +42,17 @@ public class LogInStepDefinitions {
 
     @Then("the '$buttonName' button is displayed")
     public void thenTheButtonIsDisplayed(String buttonName){
-        System.out.println("!!!!!!!The button name is 1: " + buttonName);
-        customer.isLoginButtonDisplayed(buttonName);
+        customer.isButtonDisplayed(buttonName);
     }
 
     @When("I select the 'blank' option")
     public void whenISelectBlankOption(){
+        customer.selectBlankOption();
 
     }
 
     @Then("the '$buttonName' button is not displayed")
     public void thenTheButtonIsNotDisplayed(String buttonName){
-        System.out.println("!!!!!!!The button name is 2: " + buttonName);
+        customer.isButtonHidden(buttonName);
     }
 }

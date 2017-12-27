@@ -4,6 +4,7 @@ import com.serenitybdd.angularjs.demo.ui.AccountPage;
 import com.serenitybdd.angularjs.demo.ui.LandingPage;
 import com.serenitybdd.angularjs.demo.ui.LoginPage;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -60,7 +61,18 @@ public class CustomerSteps {
         loginPage.selectBlankOption();
     }
 
+    //TODO: this is a general method, should be moved to a Util class
     protected void checkButtonStatus(String buttonName, boolean isVisible){
        assertThat(loginPage.isButtonDisplayed(buttonName)).isEqualTo(isVisible);
+    }
+
+    @Step
+    public void openAccountPage(){
+        accountPage.open();
+    }
+
+    @Step
+    public void selectAnyAccount() {
+        accountPage.selectAnyAccont();
     }
 }

@@ -3,20 +3,20 @@ As a Cutsomer
 I want to manage my accounts by depositing or withdrawing money,
 and reviewing my transaction history
 
-Scenario: Data displayed on main page
+Scenario: Data displayed on main account page
 Meta:
 @tag component:UI
 @tag tool:jbehave
 
 Given I am logged in as a valid customer
-When I open the main page
+When I open the account page
 Then I can choose from my accounts
 And the 'account number' is displayed
 And the 'balance' is displayed
 And the 'currency' is displayed
 And I can access my 'transactions'
 And I can start 'deposits'
-And I can start 'withdrawls'
+And I can start 'withdrawals'
 
 Scenario: Viewing all my accounts
 Meta:

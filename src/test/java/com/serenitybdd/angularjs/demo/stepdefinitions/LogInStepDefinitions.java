@@ -55,4 +55,18 @@ public class LogInStepDefinitions {
     public void thenTheButtonIsNotDisplayed(String buttonName){
         customer.isButtonHidden(buttonName);
     }
+
+    @Given("I am logged in as a valid customer")
+    public void givenIAmLoggedInAsAValidCustomer(){
+        givenIAmOnCustomerLoginPage();
+        whenIselectAValidCustomerName();
+        customer.login();
+    }
+
+    @When("I open the account page")
+    public void whenIOpenTheAccountPage(){
+        customer.openAccountPage();
+    }
+
+
 }

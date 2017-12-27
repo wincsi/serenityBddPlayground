@@ -1,21 +1,25 @@
 package com.serenitybdd.angularjs.demo.ui;
 
-import com.paulhammant.ngwebdriver.ByAngular;
 import com.serenitybdd.angularjs.demo.utils.Utils;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 import java.util.List;
 
-public class LoginPage extends PageObject {
+public class LoginPage extends BasePage {
 
     @FindBy(id = "userSelect")
     WebElementFacade userSelect;
 
     @FindBy(xpath = "//button[contains(.,'Login')]")
     WebElementFacade loginButton;
+
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void selectUserByName(String userName){
         userSelect.selectByVisibleText(userName);
@@ -28,8 +32,7 @@ public class LoginPage extends PageObject {
     }
 
     public void selectAnyUser() {
-        List<String> selectOptions = userSelect.getSelectOptions();
-        userSelect.selectByVisibleText(Utils.getRandomOption(selectOptions));
+        Utils.selectRandomOption(userSelect);
     }
 
     //TODO: Move this to a base page object class or to Util class

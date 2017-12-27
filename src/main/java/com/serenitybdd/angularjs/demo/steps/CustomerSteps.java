@@ -1,10 +1,12 @@
 package com.serenitybdd.angularjs.demo.steps;
 
 import com.serenitybdd.angularjs.demo.ui.AccountPage;
+import com.serenitybdd.angularjs.demo.ui.CurrentPage;
 import com.serenitybdd.angularjs.demo.ui.LandingPage;
 import com.serenitybdd.angularjs.demo.ui.LoginPage;
+import com.serenitybdd.angularjs.demo.utils.Utils;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,8 +15,10 @@ public class CustomerSteps {
     LandingPage landingPage;
     LoginPage loginPage;
     AccountPage accountPage;
+    CurrentPage currentPage;
 
     @Step
+    //TODO: application name should come from a parameter
     public void isLandingPage() {
         landingPage.open();
 
@@ -56,23 +60,41 @@ public class CustomerSteps {
         checkButtonStatus(buttonName, false);
     }
 
-    @Step
-    public void selectBlankOption() {
-        loginPage.selectBlankOption();
-    }
-
-    //TODO: this is a general method, should be moved to a Util class
-    protected void checkButtonStatus(String buttonName, boolean isVisible){
-       assertThat(loginPage.isButtonDisplayed(buttonName)).isEqualTo(isVisible);
+    protected void checkButtonStatus(String buttonText, boolean isVisible){
+       Utils.isButtonDisplayed(loginPage.getButtonByText(buttonText), isVisible);
     }
 
     @Step
     public void openAccountPage(){
+        //TODO: How can we check if we are on the good page and don't reopen the page if not necessary?
         accountPage.open();
     }
 
     @Step
     public void selectAnyAccount() {
         accountPage.selectAnyAccont();
+    }
+
+    @Step
+    public void selectedAccountNumberIsDisplayed() {
+        String displayedAccountNumber = accountPage.getDisplayedAccountNumber();
+        String selectedAccountNumber = accountPage.getSelectedAccountNumber();
+
+        assertThat(displayedAccountNumber).isEqualToIgnoringWhitespace(selectedAccountNumber);
+    }
+
+    @Step
+    public void balanceValueIsDisplayed() {
+        WebElementFacade balanceElement = accountPage.getBalance();
+        Utils.isDisplayed(balanceElement);
+        assertThat(balanceElement.getText()).isNotEmpty();
+
+    }
+
+    @Step
+    public void currencyValueIsDisplayed() {
+        WebElementFacade currencyElement = accountPage.getCurrency();
+        Utils.isDisplayed(currencyElement);
+        assertThat(currencyElement.getText()).isNotEmpty();
     }
 }

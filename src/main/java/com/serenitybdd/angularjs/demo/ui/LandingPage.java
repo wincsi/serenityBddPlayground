@@ -8,7 +8,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.WhenPageOpens;
 import org.openqa.selenium.WebDriver;
 
-@DefaultUrl("http://www.way2automation.com/angularjs-protractor/banking/#/login")
+@DefaultUrl("/login")
 public class LandingPage extends BasePage {
 
     WebElementFacade customerLoginButton;

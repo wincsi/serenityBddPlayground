@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.WhenPageOpens;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class BasePage extends PageObject {
@@ -17,6 +18,11 @@ public class BasePage extends PageObject {
 
     @WhenPageOpens
     public void waitUntilTitleAppears() {
+        waitForAngularRequestsToFinish();
         element(header).waitUntilVisible();
+    }
+
+    public WebElementFacade getButtonByText(String buttonText) {
+        return find(By.xpath("//button[contains(.,'"+ buttonText + "')]"));
     }
 }

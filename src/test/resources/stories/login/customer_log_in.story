@@ -23,5 +23,5 @@ Meta:
 Given I am on customer login page
 When I select a valid customer name from the list
 Then the 'Login' button is displayed
-When I select the 'blank' option
+When I select the '---Your Name---' option
 Then the 'Login' button is not displayed

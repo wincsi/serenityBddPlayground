@@ -14,5 +14,19 @@ public class CustomerAccountStepDefinitions {
         customer.selectAnyAccount();
     }
 
+    @Then("the 'account number' is displayed")
+    public void thenTheAccountNumberIsDisplayed(){
+        customer.selectedAccountNumberIsDisplayed();
+    }
+
+    @Then("the 'balance' is displayed")
+    public void thenTheBalanceIsDisplaye(){
+        customer.balanceValueIsDisplayed();
+    }
+
+    @Then("the 'currency' is displayed")
+    public void thenTheCurrencyIsDisplayed(){
+        customer.currencyValueIsDisplayed();
+    }
 
 }

@@ -2,13 +2,13 @@ package com.serenitybdd.angularjs.demo.ui;
 
 import com.serenitybdd.angularjs.demo.utils.Utils;
 import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.List;
 
+@DefaultUrl("/customer")
 public class LoginPage extends BasePage {
 
     @FindBy(id = "userSelect")
@@ -32,16 +32,8 @@ public class LoginPage extends BasePage {
     }
 
     public void selectAnyUser() {
+        waitForAngularRequestsToFinish();
+        userSelect.waitUntilClickable();
         Utils.selectRandomOption(userSelect);
-    }
-
-    //TODO: Move this to a base page object class or to Util class
-    public boolean isButtonDisplayed(String buttonName){
-        WebElementFacade button = find(By.xpath("//button[contains(.,'"+ buttonName + "')]"));
-        return button.isDisplayed();
-    }
-
-    public void selectBlankOption() {
-        userSelect.selectByVisibleText("---Your Name---");
     }
 }

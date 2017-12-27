@@ -40,14 +40,14 @@ public class LogInStepDefinitions {
         customer.selectAnyUser();
     }
 
-    @Then("the '$buttonName' button is displayed")
-    public void thenTheButtonIsDisplayed(String buttonName){
-        customer.isButtonDisplayed(buttonName);
+    @Then("the '$buttonText' button is displayed")
+    public void thenTheButtonIsDisplayed(String buttonText){
+        customer.isButtonDisplayed(buttonText);
     }
 
-    @When("I select the 'blank' option")
-    public void whenISelectBlankOption(){
-        customer.selectBlankOption();
+    @When("I select the '$option' option")
+    public void whenISelectBlankOption(String option){
+        customer.selectByUserName(option);
 
     }
 

@@ -35,7 +35,7 @@ public class AccountPage extends BasePage {
     }
 
     public void selectAnyAccont() {
-        Utils.selectRandomOption(accountSelector);
+        Utils.selectRandomOption(accountSelector, false);
     }
 
     public String getDisplayedAccountNumber() {

@@ -34,6 +34,6 @@ public class LoginPage extends BasePage {
     public void selectAnyUser() {
         waitForAngularRequestsToFinish();
         userSelect.waitUntilClickable();
-        Utils.selectRandomOption(userSelect);
+        Utils.selectRandomOption(userSelect, true);
     }
 }

@@ -29,4 +29,16 @@ public class CustomerAccountStepDefinitions {
         customer.currencyValueIsDisplayed();
     }
 
+    @Then("I can access my '$buttonText'")
+    public void thenICanAccessTransactions(String buttonText){
+        customer.isButtonDisplayed(buttonText);
+        customer.isButtonEnabled(buttonText);
+    }
+
+    @Then("I can '$buttonText'")
+    public void thenICanStartAnAction(String buttonText){
+        customer.isButtonDisplayed(buttonText);
+        customer.isButtonEnabled(buttonText);
+    }
+
 }

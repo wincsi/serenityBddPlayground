@@ -14,9 +14,9 @@ Then I can choose from my accounts
 And the 'account number' is displayed
 And the 'balance' is displayed
 And the 'currency' is displayed
-And I can access my 'transactions'
-And I can start 'deposits'
-And I can start 'withdrawals'
+And I can access my 'Transactions'
+And I can 'Deposit'
+And I can 'Withdrawl'
 
 Scenario: Viewing all my accounts
 Meta:

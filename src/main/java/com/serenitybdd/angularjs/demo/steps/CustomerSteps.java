@@ -52,15 +52,15 @@ public class CustomerSteps {
 
     @Step
     public void isButtonDisplayed(String buttonName) {
-        checkButtonStatus(buttonName, true);
+        checkButtonDisplayStatus(buttonName, true);
     }
 
     @Step
     public void isButtonHidden(String buttonName) {
-        checkButtonStatus(buttonName, false);
+        checkButtonDisplayStatus(buttonName, false);
     }
 
-    protected void checkButtonStatus(String buttonText, boolean isVisible){
+    protected void checkButtonDisplayStatus(String buttonText, boolean isVisible){
        Utils.isButtonDisplayed(loginPage.getButtonByText(buttonText), isVisible);
     }
 
@@ -96,5 +96,19 @@ public class CustomerSteps {
         WebElementFacade currencyElement = accountPage.getCurrency();
         Utils.isDisplayed(currencyElement);
         assertThat(currencyElement.getText()).isNotEmpty();
+    }
+
+    @Step
+    public void isButtonDisabled(String buttonText) {
+        checkButtonEnabledStatus(buttonText, false);
+    }
+
+    @Step
+    public void isButtonEnabled(String buttonText) {
+        checkButtonEnabledStatus(buttonText, true);
+    }
+
+    protected void checkButtonEnabledStatus(String buttonText, boolean isEnabled){
+        Utils.isButtonEnabled(loginPage.getButtonByText(buttonText), true);
     }
 }

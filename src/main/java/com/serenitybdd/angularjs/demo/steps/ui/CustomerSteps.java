@@ -1,4 +1,4 @@
-package com.serenitybdd.angularjs.demo.steps;
+package com.serenitybdd.angularjs.demo.steps.ui;
 
 import com.serenitybdd.angularjs.demo.ui.AccountPage;
 import com.serenitybdd.angularjs.demo.ui.CurrentPage;

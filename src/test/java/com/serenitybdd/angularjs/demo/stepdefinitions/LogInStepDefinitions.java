@@ -1,6 +1,6 @@
 package com.serenitybdd.angularjs.demo.stepdefinitions;
 
-import com.serenitybdd.angularjs.demo.steps.CustomerSteps;
+import com.serenitybdd.angularjs.demo.steps.ui.CustomerSteps;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;

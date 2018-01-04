@@ -1,4 +1,4 @@
-package com.serenitybdd.angularjs.demo.tests;
+package com.serenitybdd.angularjs.demo.tests.ui;
 
 import net.serenitybdd.jbehave.SerenityStories;
 

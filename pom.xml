@@ -62,7 +62,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -73,6 +72,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
+                    <skip>true</skip>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
@@ -81,7 +81,7 @@
                 <version>${maven.failsafe.plugin.version}</version>
                 <configuration>
                     <includes>
-                        <include>**/demo/*.java</include>
+                        <include>**/demo/test/*.java</include>
                     </includes>
                 </configuration>
                 <executions>

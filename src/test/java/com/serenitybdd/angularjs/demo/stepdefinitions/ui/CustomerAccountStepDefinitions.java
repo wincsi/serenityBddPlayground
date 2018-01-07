@@ -1,4 +1,4 @@
-package com.serenitybdd.angularjs.demo.stepdefinitions;
+package com.serenitybdd.angularjs.demo.stepdefinitions.ui;
 
 import com.serenitybdd.angularjs.demo.steps.ui.CustomerSteps;
 import net.thucydides.core.annotations.Steps;

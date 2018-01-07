@@ -1,7 +1,6 @@
 package com.serenitybdd.angularjs.demo.steps.api;
 
 import io.restassured.response.Response;
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 
@@ -17,12 +16,12 @@ public class CountriesSearchSteps {
     }
 
     @Step
-    public void searchIsExecutedSuccesfully(){
-        response.then().statusCode(200);
+    public void searchIsExecutedSuccesfullyWithHttpCode(String httpCode){
+        response.then().statusCode(Integer.parseInt(httpCode));
     }
 
     @Step
-    public void iShouldFindCountry(String country){
+    public void countryNameShouldEqual(String country){
         response.then().body("RestResponse.result.name", is(country));
     }
 }
